@@ -10,16 +10,16 @@ export const font = Montserrat ({
 });
 const LandingNavbar = () => {
   return (
-    <nav className="hidden fixed lg:flex mt-5 justify-between w-screen px-[100px] z-10">
+    <nav className="fixed flex mt-5 justify-between w-screen lg:px-[100px] z-10">
       <Link href='/' className="flex items-center p-1">
-        <div className="relative mr-2">
-        <Image width={40} height={70} alt="LOGO" src='/einstein.png'/>
+        <div className="relative mr-2 h-10 w-10">
+        <Image fill alt="LOGO" src='/einstein.png'/>
         </div>
-        <h1 className={cn('text-2xl font-bold text-white', font.className)}>
+        <h1 className={cn('lg:text-2xl font-bold text-white', font.className)}>
         Ask Einstein
         </h1>
       </Link>
-      <div className={cn("flex items-center pr-2 gap-x-[40px] text-xl font-bold text-white cursor-pointer", font.className)}>
+      <div className={cn("hidden lg:flex items-center pr-2 gap-x-[40px] text-xl font-bold text-white cursor-pointer", font.className)}>
       <Link href='/sign-up' className="flex items-center ">
        <p className="hover:underline">Sign up</p>
         </Link>
@@ -27,8 +27,10 @@ const LandingNavbar = () => {
         <p className="hover:underline">Log in</p>
         </Link>
       </div>
+      <div className="lg:hidden">
       <LandingMobile />
-      
+      </div>
+  
     </nav>
   );
 };

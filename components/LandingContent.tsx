@@ -6,15 +6,16 @@ import {BsArrowUpRight} from 'react-icons/bs'
 import {BsArrowRight} from 'react-icons/bs'
 const LandingContent = () => {
   return (
+    <>
     <div
       className={cn(
-        "flex h-full items-center  relative ml-[100px] ",
+        "flex h-full items-center  relative lg:ml-[100px] ml-[50px] ",
         font.className
       )}
     >
       <div className="flex flex-col items-start lg:max-w-[800px] gap-y-5">
-        <h1 className="text-5xl text-bold text-white">Ask Einstein</h1>
-        <p className="text-sm text-white font-medium leading-6">
+        <h1 className="text-2xl lg:text-5xl text-bold text-white">Ask Einstein</h1>
+        <p className="text-base text-white font-medium leading-6">
           Are you ready to dive into the depths of creativity and unlock the
           genius within you? Welcome to "Ask Einstein," where the power of
           artificial intelligence meets your imagination. Inspired by the
@@ -29,12 +30,13 @@ const LandingContent = () => {
       </Link>
    
       </div>
-      <div className="flex items-end mt-[60rem]">
+      <div className="flex lg:mt-[60rem] absolute mt-[35rem] w-full lg:justify-center">
        <Button className="group bg-transparent border hover:text-black hover:bg-white">
         Read More <BsArrowRight className='ml-2 group-hover:rotate-90 transition'/>
        </Button>
         </div> 
     </div>
+    </>
   )
   
 };

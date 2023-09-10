@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import OpenAI from "openai"
 import {useState, useEffect} from 'react'
 import axios from 'axios';
-import AssistantLoading from "@/components/AssistantLoading";
+import {AssistantLoadingProps} from "@/components/AssistantLoading";
 import AssistantReply from "@/components/AssistantReply";
 import UserReply from "@/components/UserReply";
 
@@ -70,8 +70,8 @@ const CodePage = () => {
                 <div className={cn("flex p-5 justify-start items-start gap-x-5  rounded-md", message.role==='user' ? 'border borde-black/10': 'bg-blue-600/30')}>
      {message.role==='user' ? (<UserReply> <p>{message.content}</p></UserReply>) :(<AssistantReply>{message.content || ""}</AssistantReply>)}
     </div>
-    {isLoading && <AssistantLoading />}
-          </div>
+    <AssistantLoadingProps isLoading={isLoading}/>
+        </div>
             ))}
    
         </div>

@@ -15,7 +15,7 @@ import axios from "axios";
 import AssistantReply from "@/components/AssistantReply";
 import UserReply from "@/components/UserReply";
 import { cn } from "@/lib/utils";
-import AssistantLoading from "@/components/AssistantLoading";
+import {AssistantLoadingProps }from "@/components/AssistantLoading";
 const ConversationPage = () => {
   const router = useRouter();
   const [messages, setMessage] = useState<OpenAI.Chat.ChatCompletionMessage[]>(
@@ -81,7 +81,7 @@ const ConversationPage = () => {
                 <AssistantReply>{message.content || ""}</AssistantReply>
               )}
             </div>
-            {isLoading && <AssistantLoading />}
+            <AssistantLoadingProps isLoading={isLoading}/>
           </div>
         ))}
       </div>

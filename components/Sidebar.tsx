@@ -5,10 +5,13 @@ import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
 import {usePathname} from 'next/navigation';
+import ApiCounter from "./ApiCounter";
 import { LayoutDashboard,MessageSquare, ImageIcon, VideoIcon, Music, Code } from "lucide-react";
 const montserat = Montserrat({ weight: "600", subsets: ["latin"] });
-
-const Sidebar = () => {
+interface SidebarProps{
+  apiLimit?:number
+}
+const Sidebar = ({apiLimit}:SidebarProps) => {
     const pathname = usePathname()
   const routes = [
     {
@@ -94,6 +97,7 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+      <ApiCounter apiLimit={apiLimit}/>
     </div>
   );
 };

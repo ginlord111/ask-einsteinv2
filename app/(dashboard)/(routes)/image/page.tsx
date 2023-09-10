@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import {useState} from 'react'
 import axios from 'axios';
-import AssistantLoading from "@/components/AssistantLoading";
+import {AssistantLoading }from "@/components/AssistantLoading";
 import { SelectTrigger, Select, SelectValue, SelectItem } from "@/components/ui/select";
 import { SelectContent } from "@radix-ui/react-select";
 import { Card, CardFooter } from "@/components/ui/card";

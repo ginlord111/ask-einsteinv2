@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import {useState} from 'react'
 import axios from 'axios';
-import AssistantLoading from "@/components/AssistantLoading";
+import {AssistantLoading} from "@/components/AssistantLoading";
 const MusicPage = () => {
   const router = useRouter();
  const [music, setMusic] = useState()
