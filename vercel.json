@@ -2,11 +2,11 @@
     "functions": {
       "app/api/code/route.ts": {
         "memory": 3008,
-        "maxDuration": 60
+        "maxDuration": 10
       },
       "app/api/image/route.ts": {
         "memory": 3008,
-        "maxDuration": 60
+        "maxDuration": 10
       }
     }
   }
