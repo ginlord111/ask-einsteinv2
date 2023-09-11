@@ -17,7 +17,7 @@ const LandingContent = () => {
         <h1 className="text-2xl lg:text-5xl text-bold text-white">Ask Einstein</h1>
         <p className="text-base text-white font-medium leading-6">
           Are you ready to dive into the depths of creativity and unlock the
-          genius within you? Welcome to "Ask Einstein," where the power of
+          genius within you? Welcome to &quot;Ask Einstein,&quot; where the power of
           artificial intelligence meets your imagination. Inspired by the
           legendary physicist Albert Einstein, this innovative platform
           harnesses the latest in AI technology to help you create, learn, and

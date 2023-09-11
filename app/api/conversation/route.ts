@@ -1,13 +1,12 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
-
 import OpenAI from 'openai';
 import { checkApiLimit, increaseApiLimit } from "@/lib/api-limit";
 const openai = new OpenAI({
     apiKey:process.env.OPEN_AI_KEY,
 
 });
-console.log(process.env.OPEN_AI_KEY)
+
 
 export async function POST( req:Request){
     try{

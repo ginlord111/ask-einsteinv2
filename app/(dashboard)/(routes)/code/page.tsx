@@ -15,9 +15,10 @@ import axios from 'axios';
 import {AssistantLoadingProps} from "@/components/AssistantLoading";
 import AssistantReply from "@/components/AssistantReply";
 import UserReply from "@/components/UserReply";
-
+import { modalController } from "@/hooks/modal-controller";
 import { cn } from "@/lib/utils";
 const CodePage = () => {
+  const modal = modalController()
   const router = useRouter();
   const [messages, setMessage] = useState<OpenAI.Chat.ChatCompletionMessage[]>([])
   
@@ -46,7 +47,10 @@ const CodePage = () => {
     form.reset();
   }
    catch(error:any){
-    console.log(error)
+    if(error?.response?.status === 403){
+      setMessage([])
+     return modal.onOpen()
+     }
    }
    finally{
     

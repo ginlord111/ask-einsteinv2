@@ -16,9 +16,9 @@ import { SelectTrigger, Select, SelectValue, SelectItem } from "@/components/ui/
 import { SelectContent } from "@radix-ui/react-select";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
-
-
-const CodePage = () => {
+import { modalController } from "@/hooks/modal-controller";
+const ImagePage = () => {
+  const modal = modalController()
   const router = useRouter();
  const [images, setImages] = useState<string[]>([])
   
@@ -41,7 +41,9 @@ const CodePage = () => {
   form.reset();
   }
    catch(error:any){
-    console.log(error)
+    if(error?.response?.status === 403){
+     return modal.onOpen()
+     }
    }
    finally{
     
@@ -176,4 +178,4 @@ const CodePage = () => {
   );
 };
 
-export default CodePage;
+export default ImagePage;

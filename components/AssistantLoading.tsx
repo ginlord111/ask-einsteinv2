@@ -32,7 +32,7 @@ useEffect(() =>{
   if(!isLoading){
     setShowLoading(false)
   }
-})
+}, [isLoading])
     return (
       showLoading && (
     <div>

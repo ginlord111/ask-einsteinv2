@@ -11,7 +11,7 @@ const montserat = Montserrat({ weight: "600", subsets: ["latin"] });
 interface SidebarProps{
   apiLimit?:number
 }
-const Sidebar = ({apiLimit}:SidebarProps) => {
+const Sidebar = ({apiLimit=0}:SidebarProps) => {
     const pathname = usePathname()
   const routes = [
     {

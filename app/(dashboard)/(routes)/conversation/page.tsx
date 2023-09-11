@@ -16,7 +16,9 @@ import AssistantReply from "@/components/AssistantReply";
 import UserReply from "@/components/UserReply";
 import { cn } from "@/lib/utils";
 import {AssistantLoadingProps }from "@/components/AssistantLoading";
+import { modalController } from "@/hooks/modal-controller";
 const ConversationPage = () => {
+  const modal = modalController()
   const router = useRouter();
   const [messages, setMessage] = useState<OpenAI.Chat.ChatCompletionMessage[]>(
     []
@@ -47,7 +49,10 @@ const ConversationPage = () => {
 
       form.reset();
     } catch (error: any) {
-      console.log(error);
+ if(error?.response?.status === 403){
+  setMessage([])
+ return modal.onOpen()
+ }
     } finally {
       router.refresh();
     }
@@ -62,7 +67,7 @@ const ConversationPage = () => {
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       />
-      <div className="flex flex-col gap-y-5  lg:max-h-[calc(100%-150px)] max-h-[calc(100%-200px)]  p-4 ">
+      <div className="flex flex-col gap-y-5  lg:max-h-[calc(100%-150px)] max-h-[calc(100%-200px)]  overflow-y-scroll  p-4 ">
         {messages.map((message) => (
           <div key={message.role} className="flex flex-col gap-y-[30px]">
             <div

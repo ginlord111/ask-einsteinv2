@@ -12,7 +12,9 @@ import { useRouter } from "next/navigation";
 import {useState} from 'react'
 import axios from 'axios';
 import {AssistantLoading} from "@/components/AssistantLoading";
+import { modalController } from "@/hooks/modal-controller";
 const MusicPage = () => {
+  const modal = modalController()
   const router = useRouter();
  const [music, setMusic] = useState()
   const form = useForm<z.infer<typeof formSchema>>({
@@ -31,7 +33,9 @@ const MusicPage = () => {
   form.reset();
   }
    catch(error:any){
-    console.log(error)
+    if(error?.response?.status === 403){
+     return modal.onOpen()
+     }
    }
    finally{
     
