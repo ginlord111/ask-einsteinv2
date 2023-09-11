@@ -4,7 +4,10 @@ import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Sidebar from "./Sidebar";
-const MobileSidebar = () => {
+interface MobileSidebarProps{
+  apiLimit:number;
+}
+const MobileSidebar = ({apiLimit}:MobileSidebarProps) => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   /// for dehydration in react
@@ -24,7 +27,7 @@ const MobileSidebar = () => {
         </Button>
       </SheetTrigger>
       <SheetContent className="p-0" side="left">
-        <Sidebar />
+        <Sidebar  apiLimit={apiLimit}/>
       </SheetContent>
     </Sheet>
   );
