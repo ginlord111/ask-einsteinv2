@@ -16,7 +16,7 @@ import { modalController } from "@/hooks/modal-controller";
 const VideoPage = () => {
   const modal = modalController()
   const router = useRouter();
- const [video, setVideo] = useState()
+ const [video, setVideo] = useState<string>()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -27,7 +27,8 @@ const VideoPage = () => {
   const isLoading = form.formState.isSubmitting;
   const onSubmit = async (values:z.infer<typeof formSchema>) => {
    try{
-  const response = await axios.post('api/video', values);
+    setVideo(undefined);
+  const response = await axios.post('/api/video', values);
 
   setVideo(response.data[0]) 
   form.reset();
@@ -60,7 +61,7 @@ const VideoPage = () => {
 </video>
  )}
    </div>
-        <div className="absolute w-full lg:top-[85vh] top-[80vh] flex items-end px-3">
+        <div className="lg:absolute fixed w-full lg:top-[85vh] top-[80vh] flex items-end px-3">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}

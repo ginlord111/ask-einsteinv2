@@ -67,7 +67,7 @@ const ConversationPage = () => {
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       />
-      <div className="flex flex-col gap-y-5  lg:max-h-[calc(100%-150px)] max-h-[calc(100%-200px)]  overflow-y-scroll  p-4 ">
+      <div className="flex flex-col gap-y-5  lg:max-h-[calc(100%-150px)] max-h-[calc(100%-250px)]  overflow-y-scroll  p-4 ">
         {messages.map((message) => (
           <div key={message.role} className="flex flex-col gap-y-[30px]">
             <div
@@ -91,7 +91,7 @@ const ConversationPage = () => {
         ))}
       </div>
 
-      <div className="absolute w-full lg:top-[85vh] top-[80vh] flex items-end px-3">
+      <div className="lg:absolute fixed w-full lg:top-[85vh] top-[80vh] flex items-end px-3 bg-white">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}

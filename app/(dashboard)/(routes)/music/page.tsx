@@ -61,7 +61,7 @@ const MusicPage = () => {
   </audio>
  )}
    </div>
-        <div className="absolute w-full lg:top-[85vh] top-[80vh] flex items-end px-3">
+        <div className="lg:absolute fixed w-full lg:top-[85vh] top-[80vh] flex items-end px-3">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}

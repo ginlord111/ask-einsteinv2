@@ -69,7 +69,7 @@ const CodePage = () => {
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       /> 
-         <div className="flex flex-col gap-y-5  lg:max-h-[calc(100%-150px)] max-h-[calc(100%-200px)]  overflow-y-scroll p-5 ">
+         <div className="flex flex-col gap-y-5  lg:max-h-[calc(100%-150px)] max-h-[calc(100%-250px)]  overflow-y-scroll p-5 ">
             {messages.map((message) =>(
               <div key={message.role} className="flex flex-col gap-y-[30px]">
                 <div className={cn("flex p-5 justify-start items-start gap-x-5  rounded-md", message.role==='user' ? 'border borde-black/10': 'bg-blue-600/30')}>
@@ -82,7 +82,7 @@ const CodePage = () => {
         </div>
         
         
-        <div className="absolute w-full lg:top-[85vh] top-[80vh] flex items-end px-3">
+        <div className="lg:absolute fixed w-full lg:top-[85vh] top-[80vh] flex items-end px-3">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
