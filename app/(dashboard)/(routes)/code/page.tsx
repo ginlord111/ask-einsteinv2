@@ -82,7 +82,7 @@ const CodePage = () => {
         </div>
         
         
-        <div className="lg:absolute fixed w-full lg:top-[85vh] top-[80vh] flex items-end px-3">
+        <div className="absolute w-full justify-end lg:top-[85vh] top-[70vh] flex items-end px-3">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}

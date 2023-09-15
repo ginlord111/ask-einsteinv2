@@ -15,10 +15,10 @@ import axios from "axios";
 import AssistantReply from "@/components/AssistantReply";
 import UserReply from "@/components/UserReply";
 import { cn } from "@/lib/utils";
-import {AssistantLoadingProps }from "@/components/AssistantLoading";
+import { AssistantLoadingProps } from "@/components/AssistantLoading";
 import { modalController } from "@/hooks/modal-controller";
 const ConversationPage = () => {
-  const modal = modalController()
+  const modal = modalController();
   const router = useRouter();
   const [messages, setMessage] = useState<OpenAI.Chat.ChatCompletionMessage[]>(
     []
@@ -49,10 +49,10 @@ const ConversationPage = () => {
 
       form.reset();
     } catch (error: any) {
- if(error?.response?.status === 403){
-  setMessage([])
- return modal.onOpen()
- }
+      if (error?.response?.status === 403) {
+        setMessage([]);
+        return modal.onOpen();
+      }
     } finally {
       router.refresh();
     }
@@ -86,12 +86,12 @@ const ConversationPage = () => {
                 <AssistantReply>{message.content || ""}</AssistantReply>
               )}
             </div>
-            <AssistantLoadingProps isLoading={isLoading}/>
+            <AssistantLoadingProps isLoading={isLoading} />
           </div>
         ))}
       </div>
 
-      <div className="lg:absolute fixed w-full lg:top-[85vh] top-[80vh] flex items-end px-3 bg-white">
+      <div className="absolute w-full justify-end lg:top-[85vh] top-[70vh]  flex items-end px-3 bg-white">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
