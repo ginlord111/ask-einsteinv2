@@ -61,7 +61,7 @@ const VideoPage = () => {
 </video>
  )}
    </div>
-        <div className="absolute w-full lg:top-[85vh] top-[70vh]  justify-end flex items-end px-3">
+        <div className="absolute w-full flex  px-3 bottom-0 left-0">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}

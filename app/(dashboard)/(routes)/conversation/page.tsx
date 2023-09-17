@@ -59,7 +59,7 @@ const ConversationPage = () => {
   };
 
   return (
-    <div className="h-[90vh] flex flex-col relative  ">
+    <div className="h-[90vh] flex flex-col relative ">
       <Heading
         title="Ask anything to Mr.Einstein Bot"
         description='Start your question by saying "hey einstein"'
@@ -91,7 +91,7 @@ const ConversationPage = () => {
         ))}
       </div>
 
-      <div className="absolute w-full justify-end lg:top-[85vh] top-[70vh]  flex items-end px-3 bg-white">
+      <div className="absolute w-full flex  px-3 bottom-0 left-0">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
