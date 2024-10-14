@@ -1,9 +1,10 @@
-
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
 import LandingMobile from "./LandingMobile";
+import { signIn } from "next-auth/react";
 export const font = Montserrat ({
     weight:'600',
     subsets:['latin']
@@ -23,9 +24,9 @@ const LandingNavbar = () => {
       <Link href='/sign-up' className="flex items-center ">
        <p className="hover:underline">Sign up</p>
         </Link>
-        <Link href='/sign-in'>
+        <div onClick={()=>signIn()}>
         <p className="hover:underline">Log in</p>
-        </Link>
+        </div>
       </div>
       <div className="lg:hidden">
       <LandingMobile />
