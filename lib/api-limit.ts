@@ -1,70 +1,75 @@
 import { auth } from "@clerk/nextjs/server";
 import prismadb from "./prismadb";
 import { MAX_FREE_COUNTS } from "@/constants";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/utils/authOptions";
 
-export const increaseApiLimit = async () =>{
-    const {userId} = auth()
+export const increaseApiLimit = async () => {
+ try {
+    const session = await getServerSession(authOptions);
 
-    if(!userId){
-        return;
+  if (session && session.user.id) {
+    const user = await prismadb.user.findUnique({
+      where: {
+        id: session.user.id,
+      },
+    });
+    if (user) {
+      await prismadb.user.update({
+        where: {
+          id: user.id,
+        },
+        data: {
+          apiLimit: user.apiLimit + 1,
+        },
+      });
     }
-
-    const userApiLimit = await prismadb.userApiLimit.findUnique({
-        where:{
-            userId:userId
-        }
-    })
-
-    if(userApiLimit){
-        await prismadb.userApiLimit.update({
-            where:{userId:userId},
-            data:{count:userApiLimit.count+1}
-        })
-    }else{
-        await prismadb.userApiLimit.create({
-        data:{userId:userId, count:1}
-        })
-    }
-        /// at first in prismadb.userapi limit doesnt have userid but when the first use of the api the userid now have a userid.
-}
-
-export const checkApiLimit = async () =>{
-    const {userId} = auth()
-
-    if(!userId){
-        return false
-    }
-    const userApiLimit = await prismadb.userApiLimit.findUnique({
-        where:{
-            userId:userId,
-        }
-    })
-
-    if(!userApiLimit || userApiLimit.count <MAX_FREE_COUNTS){
-        return true
-    }
-    else{
-        return false
-    }
+  } 
+ } catch (error) {
+   console.log(error)
+ }
 };
 
+export const checkApiLimit = async () => {
+    const session = await getServerSession(authOptions);
 
-export const getApiLimit = async () =>{
+ if(session && session.user){
+    const user = await prismadb.user.findUnique({
+        where: {
+          id: session.user.id,
+        },
+      });
+      if(user && user.apiLimit < MAX_FREE_COUNTS){
+        return true
+      }
+      else{
+        false
+      }
+ }
+ else{
+    return;
+ }
+};
 
-    const {userId} = auth()
+export const getApiLimit = async () => {
+try {
+    const session = await getServerSession(authOptions);
 
-    if(!userId){
-        return 0;
-    }
-    const userApiLimit = await prismadb.userApiLimit.findUnique({
+    const user = await prismadb.user.findUnique({
         where:{
-            userId:userId,
+            id:session?.user.id
+        },
+        select:{
+            apiLimit:true
         }
-    })
-
-    if(!userApiLimit){
-        return 0;
+    });
+    if(user){
+        return user.apiLimit
     }
-return userApiLimit.count
-
+    else {
+        return;
+    } 
+} catch (error) {
+    console.log(error)
 }
+};

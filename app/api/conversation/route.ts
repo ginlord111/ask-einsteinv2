@@ -1,7 +1,8 @@
-import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import OpenAI from 'openai';
 import { checkApiLimit, increaseApiLimit } from "@/lib/api-limit";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/utils/authOptions";
 const openai = new OpenAI({
     apiKey:process.env.OPEN_AI_KEY,
 
@@ -10,10 +11,10 @@ const openai = new OpenAI({
 
 export async function POST( req:Request){
     try{
-    const {userId} = auth()
+    const session = await getServerSession(authOptions)
     const body = await req.json()
     const {messages }= body ;
-    if(!userId){
+    if(!session?.user.id){
         return new NextResponse("Unauthorized", {status:401})
     }
 

@@ -11,7 +11,7 @@ const montserat = Montserrat({ weight: "600", subsets: ["latin"] });
 interface SidebarProps{
   apiLimit?:number
 }
-const Sidebar = ({apiLimit=0}:SidebarProps) => {
+const Sidebar = ({apiLimit}:SidebarProps) => {
     const pathname = usePathname()
   const routes = [
     {
@@ -29,29 +29,29 @@ const Sidebar = ({apiLimit=0}:SidebarProps) => {
         color: "text-violet-500",
       },
 
-      {
-        label: "Image Generator",
-        icon: ImageIcon,
-        href: "/image",
-        active: pathname === '/image',
-        color: "text-pink-700",
-      },
+      // {
+      //   label: "Image Generator",
+      //   icon: ImageIcon,
+      //   href: "/image",
+      //   active: pathname === '/image',
+      //   color: "text-pink-700",
+      // },
 
-      {
-        label: "Video Generator",
-        icon: VideoIcon,
-        href: "/video",
-        active: pathname === '/video',
-        color: "text-orange-700",
-      },
+      // {
+      //   label: "Video Generator",
+      //   icon: VideoIcon,
+      //   href: "/video",
+      //   active: pathname === '/video',
+      //   color: "text-orange-700",
+      // },
 
-      {
-        label: "Music Generator",
-        icon: Music,
-        href: "/music",
-        active: pathname === '/music',
-        color: "text-emerald-500",
-      },
+      // {
+      //   label: "Music Generator",
+      //   icon: Music,
+      //   href: "/music",
+      //   active: pathname === '/music',
+      //   color: "text-emerald-500",
+      // },
 
       {
         label: "Code Generator",

@@ -1,6 +1,6 @@
 "use client";
 import Heading from "@/components/Heading";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, User } from "lucide-react";
 import { useForm, Controller, FieldValues } from "react-hook-form";
 import * as z from "zod";
 import formSchema from "./constants";
@@ -59,7 +59,7 @@ const ConversationPage = () => {
   };
 
   return (
-    <div className="h-[90vh] flex flex-col relative ">
+    <div className="h-[100vh] flex flex-col relative ">
       <Heading
         title="Ask anything to Mr.Einstein Bot"
         description='Start your question by saying "hey einstein"'
@@ -67,7 +67,7 @@ const ConversationPage = () => {
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
       />
-      <div className="flex flex-col gap-y-5  lg:max-h-[calc(100%-150px)] max-h-[calc(100%-250px)]  overflow-y-scroll  p-4 ">
+      <div className="flex flex-col gap-y-5  lg:max-h-[calc(100%-150px)] max-h-[calc(100%-250px)]  p-4 ">
         {messages.map((message) => (
           <div key={message.role} className="flex flex-col gap-y-[30px]">
             <div
@@ -91,11 +91,11 @@ const ConversationPage = () => {
         ))}
       </div>
 
-      <div className="absolute w-full flex  px-3 bottom-0 left-0">
+      <div className="absolute w-full flex  px-3 bottom-0 left-0 mb-3">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="rounded-lg border w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2  "
+            className="rounded-lg border-2 w-full p-4 px-3 md:px-6 focus-within:shadow-sm grid grid-cols-12 gap-2  "
           >
             <Controller
               name="prompt"
