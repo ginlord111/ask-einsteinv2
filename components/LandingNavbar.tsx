@@ -24,7 +24,10 @@ const LandingNavbar = () => {
       <Link href='/sign-up' className="flex items-center ">
        <p className="hover:underline">Sign up</p>
         </Link>
-        <div onClick={()=>signIn()}>
+        <div onClick={()=>signIn("", {
+          redirect:false,
+          callbackUrl:"/dashboard",
+        })}>
         <p className="hover:underline">Log in</p>
         </div>
       </div>

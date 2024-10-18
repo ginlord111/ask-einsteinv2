@@ -43,7 +43,7 @@ const MusicPage = () => {
    }
   };
   return (
-    <div className="h-[90vh] flex flex-col relative  ">
+    <div className="h-[100vh] flex flex-col relative  ">
       <Heading
         title="Ask a music to Mr.Einstein"
         description="Start your question by saying &quot;hey einstein&quot;"

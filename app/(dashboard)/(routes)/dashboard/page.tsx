@@ -14,27 +14,27 @@ export default function DashboardPage (){
       bgColor:"bg-violet-500/10",
       href: "/conversation",
   },
-  {
-    label:"Music Generator",
-    icon : Music,
-    color:"text-emerald-500",
-    bgColor:"bg-emerald-500/10",
-    href: "/music",
-},
-{
-  label:"Image Generator",
-  icon : ImageIcon,
-  color:"text-pink-500",
-  bgColor:"bg-pink-700/10",
-  href: "/image",
-},
-{
-  label:"Video Generator",
-  icon : VideoIcon,
-  color:"text-orange-500",
-  bgColor:"bg-orange-500/10",
-  href: "/video",
-},
+//   {
+//     label:"Music Generator",
+//     icon : Music,
+//     color:"text-emerald-500",
+//     bgColor:"bg-emerald-500/10",
+//     href: "/music",
+// },
+// {
+//   label:"Image Generator",
+//   icon : ImageIcon,
+//   color:"text-pink-500",
+//   bgColor:"bg-pink-700/10",
+//   href: "/image",
+// },
+// {
+//   label:"Video Generator",
+//   icon : VideoIcon,
+//   color:"text-orange-500",
+//   bgColor:"bg-orange-500/10",
+//   href: "/video",
+// },
 {
   label:"Code Generator",
   icon : Code,
@@ -47,7 +47,7 @@ export default function DashboardPage (){
   ]
   return (
     <div>
-      <div className="mb-8 space-y-4 text-center">
+      <div className="mb-8 space-y-4 text-center py-5">
     <h2 className="text-2xl md:text-4xl font-bold">Explore the Power of AI</h2>
     <p className="text-muted-foreground font-light text-sm md:text-lg">Chat with Mr.Albert Einstein Bot</p>
       </div>
