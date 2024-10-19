@@ -25,12 +25,12 @@ const LandingContent = () => {
         </p>
         <Link href='/dashboard' className="flex items-center">
         <Button className="bg-transparent border hover:text-black hover:bg-white font-bold">
-            Get Started <BsArrowUpRight size={15} weight={1000} className='ml-2'/>
+            Get Started <BsArrowUpRight size={15}  className='ml-2'/>
         </Button>
       </Link>
    
       </div>
-      <div className="flex lg:mt-[60rem] absolute mt-[35rem] w-full lg:justify-center">
+      <div className="flex items-end h-full">
        <Button className="group bg-transparent border hover:text-black hover:bg-white">
         Read More <BsArrowRight className='ml-2 group-hover:rotate-90 transition'/>
        </Button>

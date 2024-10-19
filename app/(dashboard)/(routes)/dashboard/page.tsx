@@ -1,6 +1,6 @@
 "use client";
 import { Card } from "@/components/ui/card";
-import {MessageSquare, ImageIcon, VideoIcon, Music, Code, ArrowRight } from "lucide-react";
+import {MessageSquare , Music, Code, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 
